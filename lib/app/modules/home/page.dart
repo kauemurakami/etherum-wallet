@@ -60,13 +60,13 @@ class HomePage extends GetView<HomeController> {
                 IconButtonWidget(
                   color: Colors.green,
                   label: 'Deposit',
-                  callback: () => '',
+                  callback: () => this.controller.deposit(),
                   icon: Icons.add,
                 ),
                 IconButtonWidget(
                   color: Colors.red,
                   label: 'Withdraw',
-                  callback: () => '',
+                  callback: () => this.controller.withdraw(),
                   icon: Icons.remove,
                 ),
               ],

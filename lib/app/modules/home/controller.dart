@@ -25,6 +25,25 @@ class HomeController extends GetxController {
     this.data.value = true;
   }
 
-  deposit() async {}
-  withdraw() async {}
+  deposit() async {
+    this.data.value = false;
+    await this
+        .repository
+        .deposit(addressAccount, this.val.value)
+        .then((data) => this.amount.value = data.toDouble());
+    this.data.value = true;
+    this.val.value = 0;
+    this.getBalance();
+  }
+
+  withdraw() async {
+    this.data.value = false;
+    await this
+        .repository
+        .withdraw(addressAccount, this.val.value)
+        .then((data) => this.amount.value = data.toDouble());
+    this.data.value = true;
+    this.val.value = 0;
+    this.getBalance();
+  }
 }

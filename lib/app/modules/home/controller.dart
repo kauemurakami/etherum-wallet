@@ -17,10 +17,14 @@ class HomeController extends GetxController {
 
   changeValue(v) => this.val.value = v;
   getBalance() async {
+    this.data.value = false;
     await this
         .repository
         .getBalance(addressAccount)
-        .then((data) => print(data));
+        .then((data) => this.amount.value = data.toDouble());
     this.data.value = true;
   }
+
+  deposit() async {}
+  withdraw() async {}
 }

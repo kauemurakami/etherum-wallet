@@ -25,7 +25,7 @@ class HomePage extends GetView<HomeController> {
                   "Balance".text.gray700.xl2.semiBold.makeCentered(),
                   10.heightBox,
                   this.controller.data.value
-                      ? "\$ ${this.controller.val.value}"
+                      ? "\$ ${this.controller.amount.value}"
                           .text
                           .bold
                           .xl6
@@ -54,7 +54,7 @@ class HomePage extends GetView<HomeController> {
                 IconButtonWidget(
                   color: Colors.blue,
                   label: 'Refresh',
-                  callback: () => '',
+                  callback: () => this.controller.getBalance(),
                   icon: Icons.refresh,
                 ),
                 IconButtonWidget(

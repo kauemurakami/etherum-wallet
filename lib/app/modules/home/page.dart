@@ -20,13 +20,20 @@ class HomePage extends GetView<HomeController> {
             "\$KCoin".text.xl4.white.bold.center.makeCentered().py16(),
             (context.percentHeight * 5).heightBox,
             VxBox(
-              child: VStack([
-                "Balance".text.gray700.xl2.semiBold.makeCentered(),
-                10.heightBox,
-                this.controller.data.value
-                    ? "\$1".text.bold.xl6.makeCentered()
-                    : CircularProgressIndicator().centered()
-              ]),
+              child: Obx(
+                () => VStack([
+                  "Balance".text.gray700.xl2.semiBold.makeCentered(),
+                  10.heightBox,
+                  this.controller.data.value
+                      ? "\$ ${this.controller.val.value}"
+                          .text
+                          .bold
+                          .xl6
+                          .makeCentered()
+                          .shimmer()
+                      : CircularProgressIndicator().centered()
+                ]),
+              ),
             )
                 .p16
                 .white
@@ -36,13 +43,12 @@ class HomePage extends GetView<HomeController> {
                 .make()
                 .p16(),
             30.heightBox,
-            Container(
-                child: SliderWidget(
+            SliderWidget(
               min: 0,
               max: 100,
               sliderHeight: 40,
               fullWidth: false,
-            )),
+            ).centered(),
             HStack(
               [
                 IconButtonWidget(

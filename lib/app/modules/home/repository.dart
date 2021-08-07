@@ -4,4 +4,6 @@ class HomeRepository {
   final MyApi api;
 
   HomeRepository(this.api);
+
+  getBalance(address) => this.api.getBalance(address);
 }

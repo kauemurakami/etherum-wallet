@@ -12,7 +12,7 @@ class SliderWidget extends Container {
   final fullWidth;
 
   SliderWidget(
-      {this.sliderHeight = 48,
+      {this.sliderHeight = 50,
       this.max = 10,
       this.min = 0,
       this.fullWidth = false});

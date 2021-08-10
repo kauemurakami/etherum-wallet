@@ -14,28 +14,37 @@ dependencies:
 2 - Alterar modos para "testes Rinkeby"
 3 - Criar funções do abi no Remix
 ```dart
-    pragma solidity 0.6.6;
+    pragma solidity ^0.5.0;
 
-    contract KCoin{
-        int balance;
-        constructor() public {
-            balance = 0;
-        }
-        
-        function getBalance() view public returns(int){
-            return balance;
-        }
-        function depositBalance(int amt)  public {
-            balance = balance + amt;
-        }
-        function wuthdrawBalance(int amt) public {
-            balance = balance - amt;
-        }
+contract todoList{
+    uint public taskCount;
+    
+    struct Task{
+        string taskName;
+        bool isComplet;
     }
-```
-4 - Buildar seu código no remix
-5 - Deploy do seu contrato pelo remix
-6 - Fazer o download para o assets do seu abi.json  (voce encontrará o abi para download proximo ao botão de deploy)
+    mapping(uint => Task) public todos;
+    
+    event TaskCreated(string task, uint taskNumber);
+    
+    constructor() public {
+        taskCount = 0;
+    }
+    
+    function createTask(string memory _taskName) public {
+        //add task mapping and imcrement taskCount
+        todos[taskCount++] = Task(_taskName, false);
+        //emit event
+        emit TaskCreated(_taskName, taskCount - 1);
+    }
+    
+}
+```  
+npm install -g truffle  
+dentro da pasta do projeto $truffle init  
+4 - Buildar seu código no remix  
+5 - Deploy do seu contrato pelo remix  
+6 - Fazer o download para o assets do seu abi.json  (voce encontrará o abi para download proximo ao botão de deploy)  
 
 ### Inspirado em
 https://www.youtube.com/watch?v=3Eeh3pJ6PeA

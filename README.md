@@ -10,9 +10,8 @@ dependencies:
   http:
 ```
 
-1 - Instalar MetaMask, extensão, no chrome.
-2 - Alterar modos para "testes Rinkeby"
-3 - Criar funções do abi no Remix
+1 - Instalar Ganache.
+2 - Criar funções do abi no Remix
 ```dart
     pragma solidity ^0.5.0;
 
@@ -40,7 +39,7 @@ contract todoList{
     
 }
 ```  
-npm install -g truffle  
+3 - npm install -g truffle  
 dentro da pasta do projeto $truffle init  
 4 - Buildar seu código no remix  
 5 - Deploy do seu contrato pelo remix  
